@@ -1,0 +1,38 @@
+export const queryKeys = {
+  accessProfile: ['access-profile'] as const,
+  settings: ['settings'] as const,
+  categories: (params?: Record<string, unknown>) => ['categories', params] as const,
+  subcategories: (params?: Record<string, unknown>) => ['subcategories', params] as const,
+  brands: (params?: Record<string, unknown>) => ['brands', params] as const,
+  units: ['units'] as const,
+  products: (params?: Record<string, unknown>) => ['products', params] as const,
+  productDetail: (id: string) => ['products', id] as const,
+  variants: (params?: Record<string, unknown>) => ['variants', params] as const,
+  stockLevels: (params?: Record<string, unknown>) => ['stock-levels', params] as const,
+  stockMovements: (params?: Record<string, unknown>) => ['stock-movements', params] as const,
+  customers: (params?: Record<string, unknown>) => ['customers', params] as const,
+  customerDetail: (id: string) => ['customers', id] as const,
+  customerLedger: (id: string) => ['customer-ledger', id] as const,
+  suppliers: (params?: Record<string, unknown>) => ['suppliers', params] as const,
+  supplierDetail: (id: string) => ['suppliers', id] as const,
+  supplierLedger: (id: string) => ['supplier-ledger', id] as const,
+  sales: (params?: Record<string, unknown>) => ['sales', params] as const,
+  saleDetail: (id: string) => ['sales', id] as const,
+  purchases: (params?: Record<string, unknown>) => ['purchases', params] as const,
+  purchaseDetail: (id: string) => ['purchases', id] as const,
+  expenses: (params?: Record<string, unknown>) => ['expenses', params] as const,
+  khataImports: (params?: Record<string, unknown>) => ['khata-imports', params] as const,
+  khataImportDetail: (id: string) => ['khata-imports', id] as const,
+  users: ['users'] as const,
+  auditLogs: (params?: Record<string, unknown>) => ['audit-logs', params] as const,
+}
+
+export const QUERY_KEYS = {
+  DASHBOARD: ['dashboard'] as const,
+  CUSTOMERS: ['customers'] as const,
+  SUPPLIERS: ['suppliers'] as const,
+  SALES: ['sales'] as const,
+  PURCHASES: ['purchases'] as const,
+  INVENTORY: ['inventory'] as const,
+}
+

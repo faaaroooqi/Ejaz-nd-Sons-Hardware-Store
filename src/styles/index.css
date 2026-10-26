@@ -1,0 +1,200 @@
+@import "tailwindcss";
+
+@theme inline {
+  --color-background: hsl(var(--background));
+  --color-foreground: hsl(var(--foreground));
+  --color-card: hsl(var(--card));
+  --color-card-foreground: hsl(var(--card-foreground));
+  --color-popover: hsl(var(--popover));
+  --color-popover-foreground: hsl(var(--popover-foreground));
+  --color-primary: hsl(var(--primary));
+  --color-primary-foreground: hsl(var(--primary-foreground));
+  --color-secondary: hsl(var(--secondary));
+  --color-secondary-foreground: hsl(var(--secondary-foreground));
+  --color-muted: hsl(var(--muted));
+  --color-muted-foreground: hsl(var(--muted-foreground));
+  --color-destructive: hsl(var(--destructive));
+  --color-destructive-foreground: hsl(var(--destructive-foreground));
+  --color-success: hsl(var(--success));
+  --color-success-foreground: hsl(var(--success-foreground));
+  --color-border: hsl(var(--border));
+  --color-input: hsl(var(--input));
+  --color-ring: hsl(var(--ring));
+}
+
+@layer base {
+  :root {
+    --background: 210 20% 98%;
+    --foreground: 215 25% 15%;
+    
+    --card: 0 0% 100%;
+    --card-foreground: 215 25% 15%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 215 25% 15%;
+
+    /* Primary: Deep Teal */
+    --primary: 191 72% 21%;
+    --primary-foreground: 0 0% 100%;
+
+    /* Accent / Secondary: Warm Gold/Amber */
+    --secondary: 24 82% 48%;
+    --secondary-foreground: 0 0% 100%;
+
+    /* Muted */
+    --muted: 210 20% 94%;
+    --muted-foreground: 215 16% 47%;
+
+    /* Destructive / Expense Red */
+    --destructive: 0 72% 51%;
+    --destructive-foreground: 0 0% 100%;
+
+    /* Success / Positive Ledger Green */
+    --success: 147 71% 27%;
+    --success-foreground: 0 0% 100%;
+
+    --border: 214 20% 88%;
+    --input: 214 20% 88%;
+    --ring: 191 72% 21%;
+
+    --radius: 0.5rem;
+  }
+
+  .dark {
+    --background: 216 28% 10%;
+    --foreground: 210 20% 98%;
+
+    --card: 216 28% 13%;
+    --card-foreground: 210 20% 98%;
+
+    --popover: 216 28% 13%;
+    --popover-foreground: 210 20% 98%;
+
+    --primary: 191 72% 35%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 24 82% 48%;
+    --secondary-foreground: 0 0% 100%;
+
+    --muted: 215 25% 20%;
+    --muted-foreground: 215 16% 65%;
+
+    --destructive: 0 62% 45%;
+    --destructive-foreground: 0 0% 100%;
+
+    --success: 147 60% 35%;
+    --success-foreground: 0 0% 100%;
+
+    --border: 215 25% 22%;
+    --input: 215 25% 22%;
+    --ring: 191 72% 35%;
+  }
+}
+
+@layer base {
+  * {
+    border-color: hsl(var(--border));
+  }
+  body {
+    background-color: hsl(var(--background));
+    color: hsl(var(--foreground));
+    font-feature-settings: "rlig" 1, "calt" 1, "tnum" 1;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  }
+}
+
+/* Custom Financial / UI Helpers */
+.font-numeric {
+  font-variant-numeric: tabular-nums;
+}
+
+.font-urdu {
+  font-family: 'Noto Nastaliq Urdu', 'Urdu Typesetting', 'Jameel Noori Nastaleeq', 'Segoe UI', Tahoma, sans-serif;
+  line-height: 1.8;
+  word-spacing: 0.04em;
+}
+
+
+.glass-panel {
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+
+.dark .glass-panel {
+  background: rgba(18, 24, 33, 0.85);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+
+/* Custom Scrollbars */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: hsl(var(--muted-foreground) / 0.3);
+  border-radius: 9999px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: hsl(var(--muted-foreground) / 0.5);
+}
+
+/* Crisp form input & button styles */
+.input {
+  display: block;
+  width: 100%;
+  border-radius: 0.75rem;
+  border: 1px solid hsl(var(--input));
+  background-color: hsl(var(--background) / 0.7);
+  padding: 0.55rem 0.875rem;
+  font-size: 0.8125rem;
+  color: hsl(var(--foreground));
+  outline: none;
+  transition: all 0.15s ease-in-out;
+}
+.input:focus {
+  border-color: hsl(var(--primary));
+  box-shadow: 0 0 0 2px hsl(var(--primary) / 0.2);
+  background-color: hsl(var(--card));
+}
+.input::placeholder {
+  color: hsl(var(--muted-foreground) / 0.7);
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 0.75rem;
+  font-size: 0.75rem;
+  font-weight: 700;
+  padding: 0.55rem 1rem;
+  transition: all 0.15s ease-in-out;
+  cursor: pointer;
+  border: none;
+}
+.btn:active {
+  transform: scale(0.97);
+}
+.btn-primary {
+  background-color: hsl(var(--primary));
+  color: hsl(var(--primary-foreground));
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1);
+}
+.btn-primary:hover {
+  filter: brightness(1.1);
+}
+.btn-outline {
+  border: 1px solid hsl(var(--border));
+  background-color: transparent;
+  color: hsl(var(--muted-foreground));
+}
+.btn-outline:hover {
+  background-color: hsl(var(--muted));
+  color: hsl(var(--foreground));
+}
+
